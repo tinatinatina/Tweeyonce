@@ -1,0 +1,10 @@
+
+
+     <div ng-controller="mapCTRL">
+    <div id="map"></div>
+    <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+        <img src="{{marker.image}}" class="profilepic">
+         <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+    </div>
+</div>
+      </div>

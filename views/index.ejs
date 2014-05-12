@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="MyApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Tweeyonce</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- dependencies -->
+    <script src="lib/jquery.js"></script>
+    <script src="lib/d3.js"></script>
+    <script src="lib/angular.js"></script>
+    <script src="lib/angular-route.js"></script>
+    <link rel="shortcut icon" href="/bfavicon.ico" type="image/icon">
+    <link rel="icon" href="/bfavicon.ico" type="image/icon">
+
+<!--     <link rel="shortcut icon" href="/bfavicon.ico" type="image/x-icon">
+    <link rel="icon" href="/bfavicon.ico" type="image/x-icon"> -->
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
+<!--     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script> -->
+ <!--    <script src="/application/html/js/nlaplante/angular-google-maps/angular-google-maps.js"></script> -->
+    <!-- Bootstrap -->
+<!--     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    rel="stylesheet">
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
+    rel="stylesheet"> -->
+    <!-- scripts -->
+    <script src="angapp.js"></script>
+    <script src="MyAppController.js"></script>
+    <script src="tweets.js"></script>
+    <script src="d3Mod.js"></script>
+    <script src="wordCount.js"></script>
+    <script src="appdirectives.js"></script>
+
+
+  </head>
+  <body>
+      <h1>Tweeyonce</h1>
+    <div id="main">
+     <div><a href="#"><span><button>Word Count</button></span></a> <a href="#tweets"><span><button>Tweets</button></span></a><a href="#map"><span><button>Map</button></span></a></div>
+      <!-- <div d3-bars label="d3Label" data="d3Data" bar-height="50" bar-padding="5" on-click="d3OnClick(item)"></div>  -->
+      <div class="chat" > 
+      </div>    
+          <div ng-view></div>
+<!--       <input type="search" ng-model="q" placeholder="search..." /> 
+        <ul  ng-repeat="tweet in data | filter:q" >
+          <li><img src="{{tweet.user.profile_image_url}}" class="profilepic">
+           {{tweet.user.name}}
+           <p class= "tweetText"> {{tweet.text}}</p>
+        
+          </li>
+        </ul> -->
+      </div>
+      <button class="refresh">update</button>
+
+    </div>
+  </body>
+</html>

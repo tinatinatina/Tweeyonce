@@ -1,0 +1,10 @@
+      <div ng-controller="tweetCTRL" class="maplist" > 
+      <input type="search" ng-model="q" placeholder="search..." /> 
+        <ul  ng-repeat="tweet in data | filter:q" >
+          <li><img src="{{tweet.user.profile_image_url}}" class="profilepic">
+           {{tweet.user.name}}
+           <p class= "tweetText"> {{tweet.text}}</p>
+        
+          </li>
+        </ul>
+      </div>
