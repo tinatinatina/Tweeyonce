@@ -36,7 +36,9 @@ var T = new Twit({
 });
 
 app.get('/refreshTweets', function(req, res) {
-  T.get('search/tweets', { q: 'beyonce -RT lang:en', result_type:'recent', count: 100 }, function(err, reply) {
+  var search = req.query.name;
+  console.log(search);
+  T.get('search/tweets', { q: search+' -RT lang:en', result_type:'recent', count: 100 }, function(err, reply) {
     console.log("tweetsz gotted");
     res.json(reply);
   });

@@ -4,7 +4,8 @@ var MyApp = angular.module('MyApp', [
   'Words',
   'MyAppController',
   'd3',
-  'myApp.directives'
+  'myApp.directives',
+  'ui.bootstrap'
 ]);
 
  

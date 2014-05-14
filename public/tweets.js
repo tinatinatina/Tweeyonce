@@ -1,12 +1,15 @@
 angular.module('Tweets', ["MyApp"])
   .factory('tweetObject', function($http, $q) {
   var tweets;
-  var tweetResults = function(){return tweets;}
-  var getTweets = function(){
+  var tweetResults = function(){return tweets;};
+  var getTweets = function(args){
+    var args = args || {'name': 'beyonce'}
     var deferred = $q.defer();
-      $http.get('/refreshTweets')
+      $http.get('/refreshTweets', {
+          params: args
+        })
         .success(function(data, status, headers, config){
-          console.log("DATA FETCHED")
+          console.log("DATA FETCHED");
           deferred.resolve(data);
           tweets = data;
         })

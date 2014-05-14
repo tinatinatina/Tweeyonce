@@ -2,27 +2,26 @@
 <html ng-app="MyApp">
   <head>
     <meta charset="utf-8">
-    <title>Tweeyonce</title>
+    <title>Tweeyoncé</title>
     <link rel="stylesheet" href="styles.css">
     <!-- dependencies -->
     <script src="lib/jquery.js"></script>
     <script src="lib/d3.js"></script>
     <script src="lib/angular.js"></script>
     <script src="lib/angular-route.js"></script>
+    <script src="lib/ui-bootstrap-tpls-0.10.0.min.js"></script>
     <link rel="shortcut icon" href="/bfavicon.ico" type="image/icon">
     <link rel="icon" href="/bfavicon.ico" type="image/icon">
 
-<!--     <link rel="shortcut icon" href="/bfavicon.ico" type="image/x-icon">
-    <link rel="icon" href="/bfavicon.ico" type="image/x-icon"> -->
-
     <script src="http://maps.googleapis.com/maps/api/js?sensor=false&language=en"></script>
-<!--     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script> -->
- <!--    <script src="/application/html/js/nlaplante/angular-google-maps/angular-google-maps.js"></script> -->
+
     <!-- Bootstrap -->
-<!--     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
+    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"
     rel="stylesheet">
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"
-    rel="stylesheet"> -->
+    rel="stylesheet">
+
+
     <!-- scripts -->
     <script src="angapp.js"></script>
     <script src="MyAppController.js"></script>
@@ -34,21 +33,40 @@
 
   </head>
   <body>
-      <h1>Tweeyonce</h1>
-    <div id="main">
-     <div><a href="#"><span><button>Word Count</button></span></a> <a href="#tweets"><span><button>Tweets</button></span></a><a href="#map"><span><button>Map</button></span></a></div>
-      <!-- <div d3-bars label="d3Label" data="d3Data" bar-height="50" bar-padding="5" on-click="d3OnClick(item)"></div>  -->
-      <div class="chat" > 
+      <h1>Tweeyoncé</h1>
+    <div ng-controller="homeCTRL">
+     <!-- <div><a href="#"><span><button>Word Count</button></span></a><a href="#tweets"><span><button>Tweets</button></span></a><a href="#map"><span><button>Map</button></span></a></div> -->
+     <div class="container-fluid">
+        <div class="col-md-6" ng-controller = 'ModalDemoCtrl'>
+          <div d3-bars label="d3Label" data="d3Data" bar-height="20" bar-padding="5" id="bars" on-click="d3OnClick(item)"></div> 
+        </div>
+        <div class="col-md-6">
+           <div id="map"></div>
+        </div>
+      </div>
+    <h3 style="text-align: center" class="or"></h3>
+    <div id="searchWrapper">
+      <div class="form-group">
+        <form ng-submit="submitSearch(selected)">
+          <input type="text" ng-model="selected" placeholder="Search something less awesome..." class="form-control"><br>
+          <button ng-click="submitSearch(selected)" type = "button" class="btn-large btn btn-danger searchButton">FIND TWEETS</button>
+        </form>
+      </div>
+    </div>
+      <div class="chat" >
+        <!-- <div id="class" ng-repeat="marker in markers | orderBy : 'title'">
+            <img src="{{marker.image}}" class="profilepic">
+            <a href="#" ng-click="openInfoWindow($event, marker)">{{marker.title}}</a>
+        </div> --> 
       </div>    
-          <div ng-view></div>
-<!--       <input type="search" ng-model="q" placeholder="search..." /> 
-        <ul  ng-repeat="tweet in data | filter:q" >
+      <!--     <div ng-view></div> -->
+        <ul  ng-repeat="tweet in tweets" >
           <li><img src="{{tweet.user.profile_image_url}}" class="profilepic">
            {{tweet.user.name}}
            <p class= "tweetText"> {{tweet.text}}</p>
         
           </li>
-        </ul> -->
+        </ul>
       </div>
       <button class="refresh">update</button>
 

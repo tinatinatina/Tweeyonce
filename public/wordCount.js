@@ -38,10 +38,11 @@ Words.factory('wordCount', ['$q', 'tweetObject', function($q, tweetObject) {
             if(!textCount[text]){
               textCount[text] = {"name" : text};
               textCount[text].count = 1;
+              textCount[text].users = [result.statuses[i].id];
 
             }else{
               textCount[text].count +=1;
-
+              textCount[text].users.push(result.statuses[i].id);
             }
           }
         }
@@ -54,7 +55,7 @@ Words.factory('wordCount', ['$q', 'tweetObject', function($q, tweetObject) {
      console.log(textCount);
      deferred.resolve(textCount);
      // return textCount; 
-    })
+    });
     console.log("textCount");
     return deferred.promise;
   };

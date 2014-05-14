@@ -37,18 +37,7 @@ body {
 }
 
 
-form {
-    padding: 20px;
-    padding-left: 0;
-    margin-bottom: 20px;
-}
 
-form input[type=text] {
-    margin-right: 10px;
-    width: 70%;
-    font-size: 12px;
-    padding: 5px;
-}
 
 .chat {
     padding: 5px;
@@ -62,30 +51,15 @@ form input[type=text] {
      color: black;
 }
 
-
-
-.spinner {
-    float: right;
-    height: 46px;
-    margin-bottom: 5px;
-}
-
-.spinner img {
-    padding: 10px;
-}
 .smallChat {
     font-size: 12px;
      color: black;
 }
-.smallUsername {
-    font-weight: 
+#bars{
+    background-color: currentcolor;
+    height: 480px;;
 }
 
-.theBoxOutsideOfTheBox {
-    position:absolute;
-    left:10px;
-    top:80px;
-}
 .userInputBoxAreaForPuttingUserInput {
     color: #000;
     height: 100px;
@@ -95,6 +69,7 @@ form input[type=text] {
 li {
     list-style-type: none;
      color: black;
+     text-align: left;
 }
     
 li:hover {
@@ -104,21 +79,19 @@ li:hover {
 p {
     word-wrap:break-word;
 }
-.friendList {
-    position: absolute;
-    left: 10px;
-    top: 250px;
-}
+
 .profilepic {
     height: 30px;
     width: 30px;
+    float: left;
 }
 .tweetText {
     font-size: 14px;
+    text-align: left;
 }
 #map {
-    height:420px;
-    width:600px;
+    height:480px;
+    width:620px;
 }
 .infoWindowContent {
     font-size:  14px !important;
@@ -134,4 +107,14 @@ p {
 .infoWindowContent{
     color: black;
     font-size: 12px;
+}
+.gmnoprint img {
+    max-width: none; 
+}
+.gm-style img {
+    max-width: none; 
+}
+.gm-style label {
+    width: auto; 
+    display: inline; 
 }

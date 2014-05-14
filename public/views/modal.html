@@ -1,0 +1,17 @@
+
+
+<div class='modal-header'>
+      <h2 class='modalTitle topTitle'>{{items[0]}}</h2></div>
+      <div class='modal-body'>
+        <ul  ng-repeat="item in items[1] | filter:q" >
+          <li><img src="{{item.user.profile_image_url}}" class="profilepic">
+           <h3>{{item.user.name}}</h3>
+           <p class= "tweetText"> {{item.text}}</p>
+        
+          </li>
+        </ul>
+
+
+      <div class='modal-footer'>
+      <button class='btn btn-success' ng-click='ok()'>CLOSE</button>
+      </div>
