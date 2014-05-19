@@ -5,7 +5,7 @@ var http = require('http');
 var path = require('path');
 var Twit = require('twit');
  
-if(!process.env.URI){
+if(!process.env.consumerKey){
   var password = require('./password');
 } 
 var app = express();
