@@ -130,3 +130,6 @@ button{
     float: left !important;
     margin-top: 20px !important;
 }
+.bar:hover{
+    fill: gray !important; 
+}
