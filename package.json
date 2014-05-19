@@ -1,9 +1,7 @@
 {
-  "name": "hackathon",
-  "version": "0.0.0",
-  "main": "app.js",
-  "author": "ChristinaCunningham",
-  "license": "Copyright 2014, ChristinaCunningham. All rights reserved.",
+  "name": "application-name",
+  "version": "0.0.1",
+  "private": true,
   "scripts": {
     "start": "node app.js"
   },
