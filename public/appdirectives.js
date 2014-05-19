@@ -26,14 +26,14 @@ angular.module('myApp.directives', ['d3', 'Words'])
               scope.$apply();
             };
 
-
-
-
             scope.$watch(function() {
               return angular.element($window)[0].innerWidth;
             }, function() {
               scope.render(scope.data);
             });
+            scope.$watch('data', function(newVals, oldVals) {
+              return scope.render(newVals);
+              }, true);
             
             scope.render = function(data) {
   
@@ -100,9 +100,6 @@ angular.module('myApp.directives', ['d3', 'Words'])
                       return d.name + " (" + d.count + ")";
                     });
 
-              // scope.$watch('data', function(newVals, oldVals) {
-              //   return scope.render(newVals);
-              //   }, true);
             };
           }); //d3 promise
           // }); //wordcount promise
