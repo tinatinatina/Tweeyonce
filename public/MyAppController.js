@@ -5,6 +5,7 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
   function ($scope, $http, tweetObject, wordCount) {
 
     ///////////////TWEETS////////////////
+    console.log("!#@$Q%$^&TIURYETRERTYD");
     $scope.search = "";
     makeMap();
     $scope.d3Data = [];
