@@ -2,7 +2,7 @@ var express = require('express');
 var app = express();
 var Twit = require('twit');
  
-if(!process.env.URI){
+if(!process.env.consumerKey){
   var password = require('./password');
 }       
 
