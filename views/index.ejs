@@ -32,9 +32,9 @@
 
 
   </head>
-  <body>
-      <h1>Tweeyoncé</h1>
-    <div ng-controller="homeCTRL">
+  <body ng-controller="homeCTRL">
+      <h1>Tweeyoncé<span ng-bind="search"></span></h1>
+    <div>
      <!-- <div><a href="#"><span><button>Word Count</button></span></a><a href="#tweets"><span><button>Tweets</button></span></a><a href="#map"><span><button>Map</button></span></a></div> -->
      <div class="container-fluid">
         <div class="col-md-6" ng-controller = 'ModalDemoCtrl'>

@@ -6,11 +6,16 @@ if(!process.env.URI){
   var password = require('./password');
 }       
 
+  var consumerKey= process.env.consumerKey || password.consumerKey;
+  var consumerSecret= process.env.consumerSecret || password.consumerSecret;
+  var accessToken= process.env.accessToken || password.accessToken;
+  var accessTokenSecret= process.env.accessTokenSecret || password.accessTokenSecret;
+
 var T = new Twit({
-  consumer_key: password.consumerKey,
-  consumer_secret: password.consumerSecret,
-  access_token: password.accessToken,
-  access_token_secret: password.accessTokenSecret
+  consumer_key: consumerKey,
+  consumer_secret: consumerSecret,
+  access_token: accessToken,
+  access_token_secret: accessTokenSecret
 });
 
 // app.post('*', function(req, res) {

@@ -5,6 +5,7 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
   function ($scope, $http, tweetObject, wordCount) {
 
     ///////////////TWEETS////////////////
+    $scope.search = "";
     makeMap();
     $scope.d3Data = [];
     // if(!tweetObject.tweetResults()){
@@ -105,11 +106,19 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
       }
     }
 
+    function deleteMarkers(){
+      for (var i = 0; i < $scope.markers.length; i++) {
+      $scope.markers[i].setMap(null);
+      }
+      $scope.markers = [];
+    }
+
     $scope.submitSearch = function(search){
+      $scope.search=" for " + search;
+      deleteMarkers();
       $scope.inputBar.$setPristine();
       var searchParam = {'name': search};
       makeRequest(searchParam);
-
     };
 
   }]);
