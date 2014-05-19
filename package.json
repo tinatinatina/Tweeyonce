@@ -2,7 +2,9 @@
   "name": "application-name",
   "version": "0.0.1",
   "private": true,
-  
+  "scripts": {
+    "start": "node index.js"
+  },
   "dependencies": {
     "request": "^2.34.0",
     "chai": "^1.9.0",
