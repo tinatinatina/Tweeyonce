@@ -4,13 +4,14 @@ angular.module('myApp.directives', ['d3', 'Words'])
       return {
         restrict: 'EA',
         scope: {
+
           data: '=',
-          onClick: '&' 
+          label: "@",
+          onClick: '&'
         },
 
         link: function(scope, element, attrs) {
-          wordCount.getWordCount().then(function(result){
-            console.log("wordcount done");
+          console.log("wordcount done");
           d3Service.d3().then(function(d3) {
             console.log("d3 done");
            
@@ -18,23 +19,14 @@ angular.module('myApp.directives', ['d3', 'Words'])
               .append("svg")
               .style('width', '100%');
 
+            var margin = parseInt(attrs.margin) || 20,
+            barPadding = parseInt(attrs.barPadding) || 2.5;
+
             window.onresize = function(){
               scope.$apply();
             };
-            var newData = [];
 
-              for (var key in result){
-                newData.push(result[key]);
-              }
-              newData.sort(function(a, b){
-                return (a.count - b.count);
-              });
-          
-            scope.data = newData;
 
-            margin = parseInt(attrs.margin) || 20,
-            barPadding = parseInt(attrs.barPadding) || 2.5,
-            barHeight = ((480/newData.length)- barPadding) || 10;
 
 
             scope.$watch(function() {
@@ -44,6 +36,9 @@ angular.module('myApp.directives', ['d3', 'Words'])
             });
             
             scope.render = function(data) {
+  
+            var barHeight = ((480/data.length)- barPadding) || 10;
+
               // remove all previous items before render
               svg.selectAll('*').remove();
 
@@ -109,7 +104,7 @@ angular.module('myApp.directives', ['d3', 'Words'])
               //   }, true);
             };
           }); //d3 promise
-          }); //wordcount promise
+          // }); //wordcount promise
         }
       };
 

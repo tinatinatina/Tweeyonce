@@ -6,11 +6,21 @@ var Words = angular.module('Words', ["MyApp", "Tweets"]);
  // return text;
  //  });
 Words.factory('wordCount', ['$q', 'tweetObject', function($q, tweetObject) {
+  var result;
+  var getTweetInfo = function(params){
+    var deferred = $q.defer();
+    var tweetPromise = tweetObject.getTweets(params);
+    tweetPromise.then(function(tweets){
+      result = tweets;
+      deferred.resolve(result);
 
+    });
+    return deferred.promise;
+  };
   var getWordCount = function(){
     var deferred = $q.defer();
-    var tweetPromise = tweetObject.getTweets();
-    tweetPromise.then(function(result){
+    // var tweetPromise = tweetObject.getTweets();
+    // tweetPromise.then(function(result){
       var textCount = {};
       var noNoWords = ["the","rt", "", "of","and","a","to","in","is","you","that","it","he","was","for","on","are","as","with","his","they","i","at","be","this","have","from","or","one","had","by","word","but","not","what","all","were","we","when","your","can","said","there","use","an","each","which","she","do","how","their","if","will","up","other","about","out","many","then","them","these","so","some","her","would","make","like","him","into","time","has","look","two","more","write","go","see","number","no","way","could","people","my","than","first","water","been","call","who","its","now","find","long","down","day","did","get","come","made","may","part","http", "amp", "im", "too", "me", "de", "et", "un", "une", "le", "la", "je"];
       var accentsTidy = function(s){
@@ -52,15 +62,15 @@ Words.factory('wordCount', ['$q', 'tweetObject', function($q, tweetObject) {
           delete textCount[key];
         }
       }
-     console.log(textCount);
+     // console.log(textCount);
      deferred.resolve(textCount);
      // return textCount; 
-    });
+    // });
     console.log("textCount");
     return deferred.promise;
   };
 
-  return {getWordCount: getWordCount};
+  return {getTweetInfo:getTweetInfo, getWordCount: getWordCount};
     
 
  }]);
