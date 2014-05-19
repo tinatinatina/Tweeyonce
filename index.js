@@ -23,17 +23,28 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 if ('development' == app.get('env')) {
   app.use(express.errorHandler());
-}
+}      
 
+  var consumerKey= process.env.consumerKey || password.consumerKey;
+  var consumerSecret= process.env.consumerSecret || password.consumerSecret;
+  var accessToken= process.env.accessToken || password.accessToken;
+  var accessTokenSecret= process.env.accessTokenSecret || password.accessTokenSecret;
+
+var T = new Twit({
+  consumer_key: consumerKey,
+  consumer_secret: consumerSecret,
+  access_token: accessToken,
+  access_token_secret: accessTokenSecret
+});
 
 app.get('/', routes.index);
 
-var T = new Twit({
-  consumer_key: password.consumerKey,
-  consumer_secret: password.consumerSecret,
-  access_token: password.accessToken,
-  access_token_secret: password.accessTokenSecret
-});
+// var T = new Twit({
+//   consumer_key: password.consumerKey,
+//   consumer_secret: password.consumerSecret,
+//   access_token: password.accessToken,
+//   access_token_secret: password.accessTokenSecret
+// });
 
 app.get('/refreshTweets', function(req, res) {
   var search = req.query.name;

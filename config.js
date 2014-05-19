@@ -1,5 +1,4 @@
-var express = require('express');
-var app = express();
+
 var Twit = require('twit');
  
 if(!process.env.consumerKey){
@@ -18,9 +17,4 @@ var T = new Twit({
   access_token_secret: accessTokenSecret
 });
 
-// app.post('*', function(req, res) {
-//   T.get('search/tweets', { q: 'beyonce', count: 100 }, function(err, reply) {
-//     console.log(reply);
-//     res.json(reply);
-//   });
-// });
+module.export
