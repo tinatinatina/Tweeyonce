@@ -13,7 +13,6 @@
     "q": "1.0.0",
     "ejs": "*",
     "cron": "1.0.3",
-    "http-request": "*",
     "express": "~3.4.8",
     "express-partials": "~0.2.0",
     "bluebird": "1.0.8",
@@ -25,7 +24,6 @@
     "q": "1.0.0",
     "ejs": "*",
     "cron": "1.0.3",
-    "http-request": "*",
     "express": "~3.4.8",
     "express-partials": "~0.2.0",
     "bluebird": "1.0.8"
