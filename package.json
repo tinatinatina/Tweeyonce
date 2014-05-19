@@ -4,8 +4,19 @@
   "main": "app.js",
   "author": "ChristinaCunningham",
   "license": "Copyright 2014, ChristinaCunningham. All rights reserved.",
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
-    "start": "node app.js",
+    "request": "^2.34.0",
+    "chai": "^1.9.0",
+    "q": "1.0.0",
+    "ejs": "*",
+    "cron": "1.0.3",
+    "http-request": "*",
+    "express": "~3.4.8",
+    "express-partials": "~0.2.0",
+    "bluebird": "1.0.8",
     "twit": "^1.1.14"
   },
   "devDependencies": {
