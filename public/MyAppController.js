@@ -5,11 +5,9 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
   function ($scope, $http, tweetObject, wordCount) {
 
     ///////////////TWEETS////////////////
-    console.log("!#@$Q%$^&TIURYETRERTYD");
     $scope.search = "";
     makeMap();
     $scope.d3Data = [];
-    // if(!tweetObject.tweetResults()){
     function makeRequest(searchParam){
       wordCount.getTweetInfo(searchParam).then(function(result){
         $scope.tweets = result.statuses;
@@ -23,7 +21,6 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
           newData.sort(function(a, b){
             return (a.count - b.count);
           });
-          console.log(newData);
         
           $scope.d3Data = newData;
         });
@@ -32,7 +29,6 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
     makeRequest();
 
     ////////////////////MAP //////////////////////////
-
     function makeMap(){
       var styles =[
        {
@@ -66,7 +62,6 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
         mapTypeIds: ['Styled']}, 
         zoom: 2,
         center: new google.maps.LatLng(40.0000, -98.0000),
-        // disableDefaultUI: true, 
         mapTypeId: 'Styled'
       };
       $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
@@ -113,7 +108,7 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
       }
       $scope.markers = [];
     }
-
+    //////////////SEARCH//////////////////////////
     $scope.submitSearch = function(search){
       $scope.search=" for " + search;
       deleteMarkers();
@@ -124,6 +119,7 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
 
   }]);
 
+  //////////////// MODAL //////////////////////////
   var ModalDemoCtrl = function ($scope, $modal, $log) {
 
     $scope.d3OnClick = function(item){
@@ -175,21 +171,6 @@ MyAppController.controller('homeCTRL', ['$scope', '$http', 'tweetObject', 'wordC
       $modalInstance.dismiss('cancel');
     };
 
-    // $scope.sendToDetail = function(arg){
-    //   var stringArg = ""+arg;
-    //   $location.path( "/showDetail/:" + stringArg);
-    // };
   };
 
 
- 
-MyAppController.controller('tweetCTRL', ['$scope', '$http', 'tweetObject',
-  function ($scope, $http, tweetObject) {
-
-  }]);
-
-MyAppController.controller('mapCTRL', ['$scope', '$http', 'tweetObject',
-  function ($scope, $http, tweetObject) {
-
-
-  }]);

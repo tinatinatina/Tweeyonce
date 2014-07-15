@@ -11,10 +11,7 @@ angular.module('myApp.directives', ['d3', 'Words'])
         },
 
         link: function(scope, element, attrs) {
-          console.log("wordcount done");
           d3Service.d3().then(function(d3) {
-            console.log("d3 done");
-           
             var svg = d3.select(element[0])
               .append("svg")
               .style('width', '100%');
@@ -39,16 +36,11 @@ angular.module('myApp.directives', ['d3', 'Words'])
   
             var barHeight = ((480/data.length)- barPadding) || 10;
 
-              // remove all previous items before render
+
               svg.selectAll('*').remove();
 
-              // If we don't pass any data, return out of the element
-              // if (!data) return;
-
-              // setup variables
               var width = d3.select(element[0]).node().offsetWidth - margin,
-                  // calculate the height
-                  // height = scope.data.length * (barHeight + barPadding),
+
                   color = d3.scale.category20b(),
                   xScale = d3.scale.linear()
                     .domain([0, d3.max(data, function(d) {
@@ -56,10 +48,7 @@ angular.module('myApp.directives', ['d3', 'Words'])
                     })])
                     .range([0, width]);
 
-              // set the height based on the calculations above
-              // svg.attr('height', height);
 
-              //create the rectangles for the bar chart
               svg.selectAll('rect')
                 .data(data).enter()
                   .append('rect')
@@ -74,7 +63,6 @@ angular.module('myApp.directives', ['d3', 'Words'])
                       return color(d.count);
                     })
                   .on('click', function(d, i) {
-                    console.log('click');
                     return scope.onClick({item: d});
                   })
                   .attr('users', function(d) { return d.users; })
@@ -99,10 +87,8 @@ angular.module('myApp.directives', ['d3', 'Words'])
                     .text(function(d) {
                       return d.name + " (" + d.count + ")";
                     });
-
             };
-          }); //d3 promise
-          // }); //wordcount promise
+          }); 
         }
       };
 
