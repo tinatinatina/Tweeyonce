@@ -10,8 +10,10 @@ body {
 .d3chart{
     background-color: currentcolor;
     height: 480px;
-    background-image: url('https://www.tntmagazine.com/image.php/media/content/_master/47953/images/b…?file=media%2Fcontent%2F_master%2F47953%2Fimages%2Fbeyonce4.jpg&width=450');
-    background-size: 100%;
+    background-image: url('/images/bey.jpg');
+    background-height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 li {
