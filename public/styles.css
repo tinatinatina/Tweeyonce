@@ -16,6 +16,9 @@ body {
     background-position: center;
 }
 
+svg {
+    
+}
 li {
     list-style-type: none;
      color: black;

@@ -14,7 +14,8 @@ angular.module('myApp.directives', ['d3', 'Words'])
           d3Service.d3().then(function(d3) {
             var svg = d3.select(element[0])
               .append("svg")
-              .style('width', '100%');
+              .style('width', '100%')
+              .style('height', '100%');
 
             var margin = parseInt(attrs.margin) || 20,
             barPadding = parseInt(attrs.barPadding) || 2.5;
@@ -80,6 +81,7 @@ angular.module('myApp.directives', ['d3', 'Words'])
                     .append('text')
                     .attr('fill', '#fff')
                     .attr('font-size', '10')
+                    .attr('pointer-events', 'none')
                     .attr('y', function(d,i) {
                       return i * (barHeight + barPadding) + 15;
                     })
